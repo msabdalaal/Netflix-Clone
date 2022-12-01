@@ -1,6 +1,6 @@
 import { FaPlay, FaPlus, FaThumbsUp, FaAngleDown } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import ReactDOM from "react-dom";
+
 
 function PreviewCard({ image, removePrev, title, id, type }) {
   return (

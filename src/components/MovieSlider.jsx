@@ -51,7 +51,6 @@ function MovieSlider({ name, url, type }) {
   }, [result]);
 
   function closeBigPrev(id) {
-    console.log(id);
     setPrevOpen((e) => {
       return { ...e, [id]: !e[id] };
     });
@@ -66,7 +65,6 @@ function MovieSlider({ name, url, type }) {
     }
   }
   function removePrev(e) {
-    console.log(e.target);
     if (e.target.classList.contains("prevExt")) {
       e.target.parentElement.parentElement.classList.add("scale-0");
     }

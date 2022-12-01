@@ -1,10 +1,11 @@
-import landingBg from "../assets/AAAABSh6ie5g64jMNkI8pB0mG0LGG2gIQjecIVkp4AOmoqx1eMsxot40QT4Y.webp";
-import landingLogo from "../assets/AAAABQ4dHD4Gos8f0GO-OcbYjSMhPY1GorjpsA3kISe27TXMZ7200W0VDERR.webp";
+// import landingBg from "../assets/AAAABSh6ie5g64jMNkI8pB0mG0LGG2gIQjecIVkp4AOmoqx1eMsxot40QT4Y.webp";
+// import landingLogo from "../assets/AAAABQ4dHD4Gos8f0GO-OcbYjSMhPY1GorjpsA3kISe27TXMZ7200W0VDERR.webp";
 import { Link } from "react-router-dom";
 import { FaPlay, FaInfoCircle } from "react-icons/fa";
 import useFetch from "../contexts/useFetch";
 import { useEffect, useState } from "react";
 import BigPrev from "./BigPrev";
+import BeatLoader from "react-spinners/BeatLoader";
 
 let randomNumber = Math.floor(Math.random() * 19);
 function Landing({ type }) {
@@ -15,38 +16,54 @@ function Landing({ type }) {
 
   let id = movie?.results[randomNumber]?.id;
   let [result, setResult] = useState({ results: [] });
+  let [isLoading, setisLoading] = useState(true);
   useEffect(() => {
     try {
       fetch(
         `https://api.themoviedb.org/3/${type}/${movie?.results[randomNumber]?.id}?api_key=e3f448859c36d626838c5cb838d0b93f&append_to_response=videos,images`
       )
         .then((e) => e.json())
-        .then((e) => setResult(e));
+        .then((e) => {
+          setResult(e);
+          setisLoading(false);
+        });
     } catch (e) {}
   }, [movie]);
-  function closeBigPrev(id) {
+  function closeBigPrev() {
     setPrevOpen((e) => !e);
   }
+  let secondImg =
+    result?.networks?.map((logo) => {
+      return logo.logo_path;
+    }) ?? [];
   return (
     <section className="h-screen w-full relative flex justify-center items-start text-white flex-col z-0 max-sm:hidden">
       <div className="h-screen left-0 top-0 absolute w-full">
-        <img
-          src={`https://image.tmdb.org/t/p/original/${result.backdrop_path}`}
-          alt="Background"
-          className="h-full w-full object-cover object-top"
-        />
+        {isLoading ? (
+          <BeatLoader color="#fff" />
+        ) : (
+          <img
+            src={`https://image.tmdb.org/t/p/original/${result.backdrop_path}`}
+            alt="Background"
+            className="h-full w-full object-cover object-top"
+          />
+        )}
       </div>
       <article className="z-10 w-6/12 absolute h-screen flex justify-center flex-col pl-16 mb-12  landingBg">
         <div className="mb-6 h-40">
-          <img
-            src={`https://image.tmdb.org/t/p/original/${
-              result.images?.logos[0]?.file_path
-                ? result.images?.logos[0]?.file_path
-                : result.networks?.logo_path
-            }`}
-            alt="Landing Logo"
-            className="h-full object-contain"
-          />
+          {isLoading ? (
+            <BeatLoader color="#fff" />
+          ) : (
+            <img
+              src={`https://image.tmdb.org/t/p/original/${
+                result.images?.logos[0]?.file_path
+                  ? result.images?.logos[0]?.file_path
+                  : secondImg[0]
+              }`}
+              alt="Landing Logo"
+              className="h-full object-contain"
+            />
+          )}
         </div>
         <h1 className="text-2xl font-bold mb-4">{result.title}</h1>
         <p className="text-xl h-20 overflow-hidden mb-4">{result.overview}</p>

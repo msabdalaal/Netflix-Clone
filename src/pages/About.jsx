@@ -3,14 +3,11 @@ import useFetch from "../contexts/useFetch";
 function About() {
   let id = window.location.hash.split("-")[1];
   let type = window.location.hash.split("-")[2];
-  console.log(id, type);
   let { result: Data } = useFetch(`
   https://api.themoviedb.org/3/${type}/${id}/videos?api_key=e3f448859c36d626838c5cb838d0b93f`);
-  console.log(Data);
 
   let videoKey = Data?.results[Data?.results.length - 1]?.key;
 
-  console.log(videoKey);
   return (
     <main className="h-screen">
       {videoKey != "" ? (
