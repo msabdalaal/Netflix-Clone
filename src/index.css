@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  font-family: sans-serif;
+  padding: 0;
+}
+li a {
+  cursor: pointer;
+}
+.active {
+  font-weight: bold;
+}
+.navBgNo {
+  background-image: linear-gradient(
+    to top,
+    rgba(31, 31, 31, 0) 0%,
+    rgb(0, 0, 0, 0.9) 100%
+  );
+  transition: background-image 3s;
+}
+.navBg {
+  background-image: transparent;
+  background-image: linear-gradient(to top, rgb(31, 31, 31) 0%, black 50%);
+  transition: background-image 3s;
+}
+
+.sliderBg {
+  background-image: linear-gradient(
+    to top,
+    #141414 70%,
+    rgba(31, 31, 31, 0) 100%
+  );
+}
+.bigPrevBg {
+  background-image: linear-gradient(
+    to top,
+    #141414 40%,
+    rgba(31, 31, 31, 0) 100%
+  );
+}
+.MovieNameBg {
+  background-image: linear-gradient(
+    to top,
+    #141414be 20%,
+    rgba(31, 31, 31, 0) 100%
+  );
+}
+.landingBg {
+  background-image: linear-gradient(
+    to right,
+    #14141467 60%,
+    rgba(31, 31, 31, 0) 100%
+  );
+}
+.profileNav .arrow {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.profileNav:hover .arrow {
+  --tw-rotate: 180deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.slider {
+  transition: all ease-out 0.5s;
+}
+.prevIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.7rem;
+  background-color: #232323;
+  color: white;
+  border-radius: 50%;
+  border: 1px solid white;
+}
+.prevIcon:hover {
+  cursor: pointer;
+  background-color: #545454;
+}
