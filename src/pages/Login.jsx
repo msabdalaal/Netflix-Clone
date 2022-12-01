@@ -4,6 +4,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Login() {
+  function handleLogIn() {
+    sessionStorage.setItem("loggedIn", true);
+    window.location.hash = "/";
+    window.location.reload();
+  }
   return (
     <div className="z-10 h-screen w-screen">
       <img
@@ -27,12 +32,12 @@ export default function Login() {
             placeholder="Password"
             className="w-80 h-12 bg-[#333] text-white indent-6 rounded-sm"
           />
-          <Link
-            to="/"
+          <button
+            onClick={handleLogIn}
             className="w-80 h-12 bg-[#e50914] flex justify-center items-center font-bold rounded-sm text-white"
           >
             Sign In
-          </Link>
+          </button>
 
           <div className="flex">
             <input
@@ -51,9 +56,9 @@ export default function Login() {
           <div>
             <p className="text-[#737373]">
               New to Netflix?{" "}
-              <a href="#" className="text-white">
+              <Link to="/SignUp" className="text-white">
                 Sign up now
-              </a>
+              </Link>
               .
             </p>
           </div>
