@@ -1,5 +1,4 @@
 import useFetch from "../contexts/useFetch";
-import "react-multi-carousel/lib/styles.css";
 import PreviewCard from "./PreviewCard";
 import Slider from "./Slider";
 import { useEffect, useState } from "react";
