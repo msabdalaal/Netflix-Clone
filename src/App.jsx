@@ -2,7 +2,7 @@ import React from "react";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import { HashRouter, Routes, Route } from "react-router-dom";
-import TvShows from "./pages/Tvshows";
+import TvShows from "./pages/TvShows";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 function App() {
