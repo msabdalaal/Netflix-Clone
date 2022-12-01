@@ -4,7 +4,7 @@ import Slider from "./Slider";
 import { useEffect, useState } from "react";
 import BigPrev from "./BigPrev";
 
-function MovieSlider({ name, url }) {
+function MovieSlider({ name, url, type }) {
   let [prevOpen, setPrevOpen] = useState({});
   let { result } = useFetch(url);
   let showOpen = {};
@@ -31,14 +31,15 @@ function MovieSlider({ name, url }) {
             removePrev={removePrev}
             image={show.backdrop_path}
             id={show.id}
+            type={type}
             title={show.original_title}
           />
           <h1 className="absolute pointer-events-none pl-2 bottom-0 text-white font-bold h-12 w-full flex justify-start items-center MovieNameBg">
-            {show.original_title}
+            {show.original_title ? show.original_title : show.name}
           </h1>
         </div>
         {prevOpen[show.id] ? (
-          <BigPrev id={show.id} closeBigPrev={closeBigPrev} />
+          <BigPrev id={show.id} closeBigPrev={closeBigPrev} type={type} />
         ) : (
           ""
         )}
@@ -65,10 +66,8 @@ function MovieSlider({ name, url }) {
     }
   }
   function removePrev(e) {
-    if (
-      e.target.classList.contains("prevImg") ||
-      e.target.classList.contains("prevInf")
-    ) {
+    console.log(e.target);
+    if (e.target.classList.contains("prevExt")) {
       e.target.parentElement.parentElement.classList.add("scale-0");
     }
   }

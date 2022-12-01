@@ -7,10 +7,10 @@ import { useEffect, useState } from "react";
 import BigPrev from "./BigPrev";
 
 let randomNumber = Math.floor(Math.random() * 19);
-function Landing() {
+function Landing({ type }) {
   let [prevOpen, setPrevOpen] = useState(false);
   let { result: movie } = useFetch(
-    `https://api.themoviedb.org/3/discover/movie?api_key=e3f448859c36d626838c5cb838d0b93f&language=fr-FR&sort_by=popularity.desc&include_adult=false&with_genres=28&page=1`
+    `https://api.themoviedb.org/3/${type}/popular?api_key=e3f448859c36d626838c5cb838d0b93f`
   );
 
   let id = movie?.results[randomNumber]?.id;
@@ -18,7 +18,7 @@ function Landing() {
   useEffect(() => {
     try {
       fetch(
-        `https://api.themoviedb.org/3/movie/${movie?.results[randomNumber]?.id}?api_key=e3f448859c36d626838c5cb838d0b93f&append_to_response=videos,images`
+        `https://api.themoviedb.org/3/${type}/${movie?.results[randomNumber]?.id}?api_key=e3f448859c36d626838c5cb838d0b93f&append_to_response=videos,images`
       )
         .then((e) => e.json())
         .then((e) => setResult(e));
@@ -40,7 +40,9 @@ function Landing() {
         <div className="mb-6 h-40">
           <img
             src={`https://image.tmdb.org/t/p/original/${
-              result.images?.logos[0]?.file_path || landingLogo
+              result.images?.logos[0]?.file_path
+                ? result.images?.logos[0]?.file_path
+                : result.networks?.logo_path
             }`}
             alt="Landing Logo"
             className="h-full object-contain"
@@ -50,7 +52,7 @@ function Landing() {
         <p className="text-xl h-20 overflow-hidden mb-4">{result.overview}</p>
         <div className="flex justify-start items-center gap-4">
           <Link
-            to={`/${id}`}
+            to={`/-${id}-${type}`}
             className="transition-all flex justify-center items-center gap-2 px-8 py-3 font-bold bg-white hover:bg-[#7b7b7b] text-black rounded-lg"
           >
             <FaPlay className="text-2xl" />
@@ -65,7 +67,11 @@ function Landing() {
           </button>
         </div>
       </article>
-      {prevOpen ? <BigPrev id={result.id} closeBigPrev={closeBigPrev} /> : ""}
+      {prevOpen ? (
+        <BigPrev id={result.id} type={type} closeBigPrev={closeBigPrev} />
+      ) : (
+        ""
+      )}
     </section>
   );
 }

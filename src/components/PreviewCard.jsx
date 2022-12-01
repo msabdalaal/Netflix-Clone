@@ -2,7 +2,7 @@ import { FaPlay, FaPlus, FaThumbsUp, FaAngleDown } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import ReactDOM from "react-dom";
 
-function PreviewCard({ image, removePrev, title, id }) {
+function PreviewCard({ image, removePrev, title, id, type }) {
   return (
     <div
       id={image}
@@ -13,14 +13,14 @@ function PreviewCard({ image, removePrev, title, id }) {
         <img
           src={`https://image.tmdb.org/t/p/original/${image}`}
           alt=""
-          className="prevImg w-full h-full rounded-t-md object-cover "
+          className="prevExt w-full h-full rounded-t-md object-cover "
         />
-        <h1 className="absolute pl-2 text-2xl bottom-0 text-white font-bold h-12 w-full flex justify-start items-center MovieNameBg">
+        <h1 className="prevExt absolute pl-2 text-2xl bottom-0 text-white font-bold h-12 w-full flex justify-start items-center MovieNameBg">
           {title}
         </h1>
-        <div className="prevInf p-4 bg-[#141414] h-full">
+        <div className="prevExt p-4 bg-[#141414] h-full">
           <div className="flex justify-start items-center gap-1">
-            <Link to={`/${id}`}>
+            <Link to={`/-${id}-${type}`}>
               <FaPlay className="prevIcon bg-white text-[#232323]" />
             </Link>
             <FaPlus className="prevIcon" />
