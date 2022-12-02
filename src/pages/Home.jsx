@@ -9,7 +9,7 @@ function Home() {
   }
   return (
     <main className="relative m-0 p-0 overflow-x-hidden bg-[#141414]">
-      <Navbar />
+      <Navbar username={`Mohamed`} />
       <Landing type={`movie`} />
       <AllMovies type={`movie`} />
     </main>

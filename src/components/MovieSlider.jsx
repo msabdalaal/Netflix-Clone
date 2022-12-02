@@ -15,7 +15,7 @@ function MovieSlider({ name, url, type }) {
         <div
           key={show.id}
           id={show.id}
-          className={`cursor-pointer rounded-md relative aspect-[2/1] h-full bg-cover bg-no-repeat mr-2 bg-center`}
+          className={`cursor-pointer rounded-md max-sm:rounded-sm relative aspect-[2/1] max-sm:aspect-[4/2] h-full bg-cover bg-no-repeat mr-2 max-sm:mr-1 bg-center`}
           style={{
             backgroundImage: `url("https://image.tmdb.org/t/p/original/${show.backdrop_path}")`,
             backgroundPosition: `0px -0px`,
@@ -34,7 +34,7 @@ function MovieSlider({ name, url, type }) {
             type={type}
             title={show.original_title}
           />
-          <h1 className="absolute pointer-events-none pl-2 bottom-0 text-white font-bold h-12 w-full flex justify-start items-center MovieNameBg">
+          <h1 className="absolute max-sm:hidden pointer-events-none pl-2 bottom-0 text-white font-bold h-12 w-full flex justify-start items-center MovieNameBg">
             {show.original_title ? show.original_title : show.name}
           </h1>
         </div>

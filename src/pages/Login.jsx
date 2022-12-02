@@ -10,36 +10,34 @@ export default function Login() {
     window.location.reload();
   }
   return (
-    <div className="z-10 h-screen w-screen">
-      <img
-        src={bg}
-        alt="background"
-        className="absolute h-screen w-screen top-0 left-0 -z-10"
-      />
-      <div className="bg-[#00000097] h-screen w-screen flex flex-col items-center">
-        <header className="p-8 w-screen navBgNo">
-          <img src={Logo} alt="Logo" className="h-12" />
+    <div
+      className="bg-cover max-sm:h-screen"
+      style={{ backgroundImage: `url("${bg}")` }}
+    >
+      <div className="bg-[#00000097] max-sm:bg-black max-sm:h-screen relative flex flex-col items-center w-full">
+        <header className="p-8 navBgNo w-full max-sm:p-4">
+          <img src={Logo} alt="Logo" className="h-12 max-sm:h-6" />
         </header>
-        <div className="flex flex-col bg-[#000000b6] p-14 gap-8">
-          <h1 className="text-white text-4xl font-bold">Sign In</h1>
+        <div className="flex max-sm:w-screen max-sm:mb-auto max-sm:p-7 items-center max-sm:mt-8 justify-start flex-col bg-[#000000b6] p-14 gap-8">
+          <h1 className="text-white self-start text-4xl font-bold">Sign In</h1>
           <input
             type="email"
             placeholder="Email"
-            className="w-80 h-12 bg-[#333] text-white indent-6 rounded-sm"
+            className="w-80 max-sm:w-full h-12 bg-[#333] text-white indent-6 rounded-sm"
           />
           <input
             type="password"
             placeholder="Password"
-            className="w-80 h-12 bg-[#333] text-white indent-6 rounded-sm"
+            className="w-80 max-sm:w-full h-12 bg-[#333] text-white indent-6 rounded-sm"
           />
           <button
             onClick={handleLogIn}
-            className="w-80 h-12 bg-[#e50914] flex justify-center items-center font-bold rounded-sm text-white"
+            className="w-80 max-sm:w-full h-12 bg-[#e50914] flex justify-center items-center font-bold rounded-sm text-white"
           >
             Sign In
           </button>
 
-          <div className="flex">
+          <div className="flex w-full justify-start items-center">
             <input
               type="checkbox"
               className="accent-[#b3b3b3] w-4 mr-2"
@@ -63,8 +61,13 @@ export default function Login() {
             </p>
           </div>
         </div>
-        <footer className="bg-[#000000b6] gap-32 text-[#737373] flex justify-center items-center absolute w-screen bottom-0">
-          <div className="flex flex-col gap-1 p-2">
+        <div className="hidden max-sm:block p-6 w-full text-left border-t border-x-[#737373]">
+          <a href="#" className="text-[#737373] w-full">
+            Questions? Contact us.
+          </a>
+        </div>
+        <footer className="bg-[#000000b6] mt-20 w-full max-sm:hidden p-10 gap-32 max-sm:gap-2 text-[#737373] flex justify-center items-center relative bottom-0">
+          <div className="flex flex-col gap-8 max-sm:gap-4 p-2">
             <a href="#">Questions? Contact us.</a>
             <a href="#">FAQ</a>
             <a href="#">cookie Prefrences</a>
@@ -75,7 +78,7 @@ export default function Login() {
               <option value="AR">العربية</option>
             </select>
           </div>
-          <div className="flex flex-col gap-1 p-2">
+          <div className="flex flex-col gap-8 p-2">
             <a href="#">Help Center</a>
             <a href="#">Corporate Information</a>
           </div>
