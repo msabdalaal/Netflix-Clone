@@ -1,13 +1,27 @@
 import Logo from "../assets/Netflix_2015_logo.svg";
 import bg from "../assets/EG-en-20221128-popsignuptwoweeks-perspective_alpha_website_l.jpg";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Login() {
+  let [formData, setFormData] = useState({ email: ``, password: `` });
   function handleLogIn() {
-    sessionStorage.setItem("loggedIn", true);
-    window.location.hash = "/";
-    window.location.reload();
+    if (formData.email && formData.password) {
+      sessionStorage.setItem("loggedIn", true);
+      sessionStorage.setItem("username", formData.email);
+      window.location.hash = "/";
+      window.location.reload();
+    } else {
+    }
+  }
+  function handleForm(e) {
+    let ele = e.target;
+    setFormData((e) => {
+      return {
+        ...e,
+        [ele.name]: ele.value,
+      };
+    });
   }
   return (
     <div
@@ -21,14 +35,20 @@ export default function Login() {
         <div className="flex max-sm:w-screen max-sm:mb-auto max-sm:p-7 items-center max-sm:mt-8 justify-start flex-col bg-[#000000b6] p-14 gap-8">
           <h1 className="text-white self-start text-4xl font-bold">Sign In</h1>
           <input
+            onChange={(e) => handleForm(e)}
             type="email"
+            name="email"
             placeholder="Email"
             className="w-80 max-sm:w-full h-12 bg-[#333] text-white indent-6 rounded-sm"
+            value={formData.email}
           />
           <input
+            onChange={(e) => handleForm(e)}
             type="password"
+            name="password"
             placeholder="Password"
             className="w-80 max-sm:w-full h-12 bg-[#333] text-white indent-6 rounded-sm"
+            value={formData.password}
           />
           <button
             onClick={handleLogIn}
