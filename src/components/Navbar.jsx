@@ -26,7 +26,7 @@ function Navbar({ type, username }) {
           navBg ? ` navBg` : ``
         } ${
           navBg && type == `tv` ? `hidden` : ``
-        } text-white max-sm:bg-[#0000003e] ${
+        } max-sm:flex text-white max-sm:bg-[#0000003e] ${
           mobileNav ? `max-sm:bg-black` : ``
         }`}
       >
@@ -92,14 +92,14 @@ function Navbar({ type, username }) {
               </li>
             </ul>
           </div>
-          <ul className="flex text-[#999] font-bold flex-col justify-start items-start px-5 py-4">
-            <li>
-              <Link to="/" className={`${type == undefined ? `active` : ``}`}>
+          <ul className="flex text-[#999] font-bold flex-col justify-start items-start py-2">
+            <li className={`py-1 ${type == undefined ? `active` : ``}`}>
+              <Link to="/" className={`pl-5 h-full `}>
                 Home
               </Link>
             </li>
-            <li>
-              <Link to="/TvShows" className={`${type == `tv` ? `active` : ``}`}>
+            <li className={`py-1 ${type == `tv` ? `active` : ``}`}>
+              <Link to="/TvShows" className={`pl-5 h-full`}>
                 Tv Shows
               </Link>
             </li>
@@ -126,18 +126,20 @@ function Navbar({ type, username }) {
       </header>
       {type == `tv` ? (
         <div
-          className={`z-50 transition-all fixed ${
+          className={`z-20 max-sm:z-10 transition-all fixed ${
             !genreBg ? `translate-y-16` : ``
-          } w-screen py-5 max-sm:px-5 px-16 flex gap-8 items-center ${
+          } w-screen py-5 max-sm:py-2 max-sm:px-4 px-16 flex gap-8 items-center ${
             navBg ? `navBg` : ``
-          }`}
+          } max-sm:relative max-sm:translate-y-12`}
         >
           {type == `tv` ? (
-            <h1 className="text-4xl font-bold text-white">TV Shows</h1>
+            <h1 className="text-4xl font-bold text-white max-sm:text-xl max-sm:text-[#999]">
+              TV Shows
+            </h1>
           ) : (
             ``
           )}
-          <select name="genre" id="genre" className="h-8">
+          <select name="genre" id="genre" className="h-8 max-sm:hidden">
             <option value="Genre" defaultValue>
               Genre
             </option>
