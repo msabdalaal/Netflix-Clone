@@ -1,6 +1,5 @@
 import Logo from "../assets/Netflix_2015_logo.svg";
 import avatar from "../assets/1077063.png";
-import Mnav from "../assets/header_gradient.png";
 import { Link } from "react-router-dom";
 import { FaSearch, FaBell, FaArrowDown } from "react-icons/fa";
 import { IoMdMenu } from "react-icons/io";
@@ -22,7 +21,7 @@ function Navbar({ type, username }) {
   return (
     <>
       <header
-        className={`z-20 fixed w-screen py-5 max-sm:py-2  max-sm:px-4 px-16 flex gap-8 max-sm:gap-4 items-center  navBgNo lg:${
+        className={`z-30 fixed w-screen py-5 max-md:py-2 max-sm:py-2 max-sm:px-4 px-16 flex gap-8 max-sm:gap-4 items-center  navBgNo lg:${
           navBg ? ` navBg` : ``
         } ${
           navBg && type == `tv` ? `hidden` : ``
@@ -34,10 +33,10 @@ function Navbar({ type, username }) {
           onClick={() => setMobileNav((e) => !e)}
           className="hidden max-sm:block text-3xl"
         />
-        <Link to="/" className="h-full max-sm:mr-auto">
-          <img src={Logo} alt="Logo" className="h-7 max-sm:h-6" />
+        <Link to="/" className="h-full max-sm:mr-auto ">
+          <img src={Logo} alt="Logo" className="h-7 max-md:h-4 max-sm:h-6" />
         </Link>
-        <nav className="mr-auto h-full whitespace-nowrap items-center flex max-sm:hidden">
+        <nav className="mr-auto max-md:hidden md:hidden lg:flex h-full whitespace-nowrap items-center flex max-sm:hidden">
           <ul className="items-center flex gap-4 text-sm font-light">
             <li className={`${type == undefined ? `active` : ``}`}>
               <Link to="/">Home</Link>
@@ -59,10 +58,37 @@ function Navbar({ type, username }) {
             </li>
           </ul>
         </nav>
-
+        <div className="tabletNav text-xs max-sm:hidden lg:hidden relative flex justify-center items-center md:mr-auto max-md:mr-auto">
+          <h1 className="hover:cursor-pointer flex justify-center items-center">
+            Browse
+            <FaArrowDown className="ml-2" />
+          </h1>
+          <ul className="absolute hidden text-[#999] text-sm felx justify-center items-center text-center top-3 pt-5 bg-transparent w-52">
+            <li className="w-full h-10 bg-[rgba(0,0,0,0.7)] hover:bg-[rgba(36,36,36,0.5)]">
+              <Link
+                to="/"
+                className={`${
+                  type == undefined ? `active` : ``
+                } h-full flex justify-center items-center`}
+              >
+                Home
+              </Link>
+            </li>
+            <li className="w-full h-10 bg-[rgba(0,0,0,0.7)] hover:bg-[rgba(36,36,36,0.5)]">
+              <Link
+                to="/TvShows"
+                className={`${
+                  type == `tv` ? `active` : ``
+                } h-full flex justify-center items-center`}
+              >
+                Tv Shows
+              </Link>
+            </li>
+          </ul>
+        </div>
         <div
           className={`mobileNav hidden max-sm:block  transition-all ${
-            mobileNav ? `translate-x-0` : `translate-x-[-30rem]`
+            mobileNav ? `translate-x-0` : `translate-x-[-45rem]`
           } absolute bg-black w-[65vw] h-screen top-[2.5rem] left-0`}
         >
           <div className="border-b px-5 py-4  pb-5">
