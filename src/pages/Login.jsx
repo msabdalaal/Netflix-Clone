@@ -68,7 +68,7 @@ export default function Login() {
             <label htmlFor="Remember" className="text-[#b3b3b3] mr-auto">
               remember Me?
             </label>
-            <a href="#" className="text-[#b3b3b3] hover:underline">
+            <a href="" className="text-[#b3b3b3] hover:underline">
               Need help?
             </a>
           </div>
@@ -83,15 +83,15 @@ export default function Login() {
           </div>
         </div>
         <div className="hidden max-sm:block p-6 w-full text-left border-t border-x-[#737373]">
-          <a href="#" className="text-[#737373] w-full">
+          <a href="" className="text-[#737373] w-full">
             Questions? Contact us.
           </a>
         </div>
         <footer className="bg-[#000000b6] mt-20 w-full max-sm:hidden p-10 gap-32 max-sm:gap-2 text-[#737373] flex justify-center items-center relative bottom-0">
           <div className="flex flex-col gap-8 max-sm:gap-4 p-2">
-            <a href="#">Questions? Contact us.</a>
-            <a href="#">FAQ</a>
-            <a href="#">cookie Prefrences</a>
+            <a href="">Questions? Contact us.</a>
+            <a href="">FAQ</a>
+            <a href="">cookie Prefrences</a>
             <select name="language" id="language" className="bg-black ">
               <option value="EN" defaultValue>
                 English
@@ -100,11 +100,11 @@ export default function Login() {
             </select>
           </div>
           <div className="flex flex-col gap-8 p-2">
-            <a href="#">Help Center</a>
-            <a href="#">Corporate Information</a>
+            <a href="">Help Center</a>
+            <a href="">Corporate Information</a>
           </div>
-          <a href="#">Terms of Use</a>
-          <a href="#">Privacy</a>
+          <a href="">Terms of Use</a>
+          <a href="">Privacy</a>
         </footer>
       </div>
     </div>

@@ -99,3 +99,6 @@ li a {
 .tabletNav:hover ul {
   display: block;
 }
+.profileNav:hover ul {
+  display: block;
+}

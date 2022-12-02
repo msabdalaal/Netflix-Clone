@@ -1,8 +1,17 @@
 import Logo from "../assets/Netflix_2015_logo.svg";
 import avatar from "../assets/1077063.png";
 import { Link } from "react-router-dom";
-import { FaSearch, FaBell, FaArrowDown } from "react-icons/fa";
+import {
+  FaSearch,
+  FaBell,
+  FaArrowDown,
+  FaPen,
+  FaSignOutAlt,
+  FaExchangeAlt,
+  FaQuestion,
+} from "react-icons/fa";
 import { IoMdMenu } from "react-icons/io";
+import { RiAccountCircleLine } from "react-icons/ri";
 
 import { useState } from "react";
 function Navbar({ type, username }) {
@@ -44,7 +53,7 @@ function Navbar({ type, username }) {
             <li className={`${type == `tv` ? `active` : ``}`}>
               <Link to="/TvShows">TV Shows</Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="/">Movies</Link>
             </li>
             <li>
@@ -55,7 +64,7 @@ function Navbar({ type, username }) {
             </li>
             <li>
               <Link to="/">Browse by Languages</Link>
-            </li>
+            </li> */}
           </ul>
         </nav>
         <div className="tabletNav text-xs max-sm:hidden lg:hidden relative flex justify-center items-center md:mr-auto max-md:mr-auto">
@@ -108,10 +117,10 @@ function Navbar({ type, username }) {
 
             <ul className="text-[#999] font-bold">
               <li>
-                <a href="#">Account</a>
+                <a href="">Account</a>
               </li>
               <li>
-                <a href="#">Help Center</a>
+                <a href="">Help Center</a>
               </li>
               <li>
                 <Link to="/Login">Sign Out Of Netflix</Link>
@@ -148,6 +157,26 @@ function Navbar({ type, username }) {
             className="bg-white p-1 rounded-md h-full "
           />
           <FaArrowDown className="arrow w-3" />
+          <ul className="absolute hidden top-10 pt-8 w-64 right-14 text-sm">
+            <li className="w-full pl-4 flex justify-start items-center gap-2 h-10 bg-[rgba(0,0,0,0.9)] hover:underline">
+              <FaPen /> <a href="">Manage Profile</a>
+            </li>
+            <li className="w-full pl-4 flex justify-start items-center gap-2 h-10 bg-[rgba(0,0,0,0.9)] hover:underline">
+              <FaSignOutAlt /> <a href="">Exit Profile</a>
+            </li>
+            <li className="w-full pl-4 flex justify-start items-center gap-2 h-10 bg-[rgba(0,0,0,0.9)] hover:underline">
+              <FaExchangeAlt /> <a href="">Transfer Profile</a>
+            </li>
+            <li className="w-full pl-4 flex justify-start items-center gap-2 h-10 bg-[rgba(0,0,0,0.9)] hover:underline">
+              <RiAccountCircleLine /> <a href="">Account</a>
+            </li>
+            <li className="w-full pl-4 flex justify-start items-center gap-2 h-10 bg-[rgba(0,0,0,0.9)] hover:underline">
+              <FaQuestion /> <a href="">Help Center</a>
+            </li>
+            <li className="w-full pl-4 flex justify-center border-t items-center gap-2 h-10 bg-[rgba(0,0,0,0.9)] hover:underline">
+              <a href="">Sign out of Netflix</a>
+            </li>
+          </ul>
         </div>
       </header>
       {type == `tv` ? (
