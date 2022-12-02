@@ -4,14 +4,15 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Login() {
-  let [formData, setFormData] = useState({ email: ``, password: `` });
+  let [formData, setFormData] = useState({ username: ``, password: `` });
   function handleLogIn() {
-    if (formData.email && formData.password) {
+    if (formData.username && formData.password) {
       sessionStorage.setItem("loggedIn", true);
-      sessionStorage.setItem("username", formData.email);
+      sessionStorage.setItem("username", formData.username);
       window.location.hash = "/";
       window.location.reload();
     } else {
+      alert("Please Enter Username & Password");
     }
   }
   function handleForm(e) {
@@ -36,9 +37,9 @@ export default function Login() {
           <h1 className="text-white self-start text-4xl font-bold">Sign In</h1>
           <input
             onChange={(e) => handleForm(e)}
-            type="email"
-            name="email"
-            placeholder="Email"
+            type="text"
+            name="username"
+            placeholder="Username"
             className="w-80 max-sm:w-full h-12 bg-[#333] text-white indent-6 rounded-sm"
             value={formData.email}
           />
