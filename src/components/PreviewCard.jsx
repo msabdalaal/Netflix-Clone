@@ -19,24 +19,24 @@ function PreviewCard({ image, removePrev, title, id, type }) {
           {title}
         </h1>
         <div className="prevExt p-4 bg-[#141414] h-full">
-          <div className="flex justify-start items-center gap-1">
-            <Link to={`/-${id}-${type}`}>
-              <FaPlay className="prevIcon bg-white text-[#232323]" />
+          <div className="flex justify-start items-center ">
+            <Link to={`/-${id}-${type}`} className="mr-1">
+              <FaPlay className="prevIcon  bg-white text-[#232323]" />
             </Link>
-            <FaPlus className="prevIcon" />
+            <FaPlus className="prevIcon mr-1" />
             <FaThumbsUp className="mr-auto prevIcon" />
-            <FaAngleDown className="prevIcon" />
+            <FaAngleDown className="prevIcon mr-1" />
           </div>
-          <div className="flex mt-4 justify-start items-center gap-2">
-            <h1 className="text-green-400 font-bold">93% Matching</h1>
-            <p className="text-white px-1 border text-sm">16+</p>
-            <p className="text-white px-1 text-sm">1Season</p>
-            <p className="text-white px-1 border text-xs">HD</p>
+          <div className="flex mt-4 justify-start items-center ">
+            <h1 className="text-green-400 font-bold mr-2">93% Matching</h1>
+            <p className="text-white px-1 border text-sm mr-2">16+</p>
+            <p className="text-white px-1 text-sm mr-2">1Season</p>
+            <p className="text-white px-1 border text-xs mr-2">HD</p>
           </div>
-          <div className="flex mt-4 justify-start items-center gap-2">
-            <p className="text-white text-sm">Emotional</p>
-            <p className="text-white text-sm">Teen</p>
-            <p className="text-white text-sm">Ensample</p>
+          <div className="flex mt-4 justify-start items-center">
+            <p className="text-white text-sm mr-2">Emotional</p>
+            <p className="text-white text-sm mr-2">Teen</p>
+            <p className="text-white text-sm mr-2">Ensample</p>
           </div>
         </div>
       </div>

@@ -22,7 +22,7 @@ function Slider({ content, name }) {
     }
   }
   return (
-    <div className="slider flex pb-28 max-sm:pb-4 z-10 relative sliderBg flex-col pl-4 lg:pl-16 md:pl-16 translate-y-[-50%] max-sm:translate-y-14">
+    <div className="slider flex pb-28 max-sm:pb-4 z-10 relative sliderBg flex-col pl-4 lg:pl-16 md:pl-16 translate-y-[-50%] md:translate-y-[-30%] max-md:translate-y-[-30%] max-sm:translate-y-14">
       <h1 className="text-xl z-10 text-white font-bold mb-2 max-sm:text-[#999]">
         {name}
       </h1>

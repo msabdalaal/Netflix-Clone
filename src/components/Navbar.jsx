@@ -30,7 +30,7 @@ function Navbar({ type, username }) {
   return (
     <>
       <header
-        className={`z-30 fixed w-screen py-5 max-md:py-2 max-sm:py-2 max-sm:px-4 px-16 flex gap-8 max-sm:gap-4 items-center  navBgNo lg:${
+        className={`z-30 fixed w-screen py-5 max-md:py-2 max-sm:py-2 max-sm:px-4 px-16 flex items-center  navBgNo lg:${
           navBg ? ` navBg` : ``
         } ${
           navBg && type == `tv` ? `hidden` : ``
@@ -40,17 +40,21 @@ function Navbar({ type, username }) {
       >
         <IoMdMenu
           onClick={() => setMobileNav((e) => !e)}
-          className="hidden max-sm:block text-3xl"
+          className="hidden max-sm:block text-3xl mr-8 max-sm:mr-4"
         />
-        <Link to="/" className="h-full max-sm:mr-auto ">
+        <Link to="/" className="h-full max-sm:mr-auto mr-8">
           <img src={Logo} alt="Logo" className="h-7 max-md:h-4 max-sm:h-6" />
         </Link>
         <nav className="mr-auto max-md:hidden md:hidden lg:flex h-full whitespace-nowrap items-center flex max-sm:hidden">
           <ul className="items-center flex gap-4 text-sm font-light">
-            <li className={`${type == undefined ? `active` : ``}`}>
+            <li
+              className={`${
+                type == undefined ? `active` : ``
+              } mr-8 max-sm:mr-4`}
+            >
               <Link to="/">Home</Link>
             </li>
-            <li className={`${type == `tv` ? `active` : ``}`}>
+            <li className={`${type == `tv` ? `active` : ``} mr-8 max-sm:mr-4`}>
               <Link to="/TvShows">TV Shows</Link>
             </li>
             {/* <li>
@@ -102,7 +106,7 @@ function Navbar({ type, username }) {
         >
           <div className="border-b px-5 py-4  pb-5">
             <div className="flex justify-start items-center">
-              <div className="profileNav mr-2 flex justify-center items-center gap-2 h-8 cursor-pointer">
+              <div className="profileNav flex justify-center items-center mr-2 mb-4 h-8 cursor-pointer">
                 <img
                   src={avatar}
                   alt="avatar"
@@ -123,7 +127,7 @@ function Navbar({ type, username }) {
                 <a href="">Help Center</a>
               </li>
               <li>
-                <Link to="/Login">Sign Out Of Netflix</Link>
+                <Link to="/">Sign Out Of Netflix</Link>
               </li>
             </ul>
           </div>
@@ -148,32 +152,32 @@ function Navbar({ type, username }) {
           placeholder="Search"
           className="hidden indent-4 w-[35%] border max-sm:block bg-[#141414]"
         />
-        <FaSearch className="cursor-pointer max-sm:hidden" />
-        <FaBell className="cursor-pointer max-sm:hidden" />
-        <div className="profileNav flex justify-center items-center gap-2 h-8 cursor-pointer max-sm:hidden">
+        <FaSearch className="cursor-pointer max-sm:hidden mr-8 max-sm:mr-4" />
+        <FaBell className="cursor-pointer max-sm:hidden mr-8 max-sm:mr-4" />
+        <div className="profileNav flex justify-center items-center h-8 cursor-pointer max-sm:hidden mr-8 max-sm:mr-4">
           <img
             src={avatar}
             alt="avatar"
-            className="bg-white p-1 rounded-md h-full "
+            className="bg-white p-1 rounded-md h-full mr-2"
           />
           <FaArrowDown className="arrow w-3" />
           <ul className="absolute hidden top-10 pt-8 w-64 right-14 text-sm">
-            <li className="w-full pl-4 flex justify-start items-center gap-2 h-10 bg-[rgba(0,0,0,0.9)] hover:underline">
-              <FaPen /> <a href="">Manage Profile</a>
+            <li className="w-full pl-4 flex justify-start items-center  h-10 bg-[rgba(0,0,0,0.9)] hover:underline">
+              <FaPen className="mr-2" /> <a href="">Manage Profile</a>
             </li>
-            <li className="w-full pl-4 flex justify-start items-center gap-2 h-10 bg-[rgba(0,0,0,0.9)] hover:underline">
-              <FaSignOutAlt /> <a href="">Exit Profile</a>
+            <li className="w-full pl-4 flex justify-start items-center  h-10 bg-[rgba(0,0,0,0.9)] hover:underline">
+              <FaSignOutAlt className="mr-2" /> <a href="">Exit Profile</a>
             </li>
-            <li className="w-full pl-4 flex justify-start items-center gap-2 h-10 bg-[rgba(0,0,0,0.9)] hover:underline">
-              <FaExchangeAlt /> <a href="">Transfer Profile</a>
+            <li className="w-full pl-4 flex justify-start items-center  h-10 bg-[rgba(0,0,0,0.9)] hover:underline">
+              <FaExchangeAlt className="mr-2" /> <a href="">Transfer Profile</a>
             </li>
-            <li className="w-full pl-4 flex justify-start items-center gap-2 h-10 bg-[rgba(0,0,0,0.9)] hover:underline">
-              <RiAccountCircleLine /> <a href="">Account</a>
+            <li className="w-full pl-4 flex justify-start items-center  h-10 bg-[rgba(0,0,0,0.9)] hover:underline">
+              <RiAccountCircleLine className="mr-2" /> <a href="">Account</a>
             </li>
-            <li className="w-full pl-4 flex justify-start items-center gap-2 h-10 bg-[rgba(0,0,0,0.9)] hover:underline">
-              <FaQuestion /> <a href="">Help Center</a>
+            <li className="w-full pl-4 flex justify-start items-center  h-10 bg-[rgba(0,0,0,0.9)] hover:underline">
+              <FaQuestion className="mr-2" /> <a href="">Help Center</a>
             </li>
-            <li className="w-full pl-4 flex justify-center border-t items-center gap-2 h-10 bg-[rgba(0,0,0,0.9)] hover:underline">
+            <li className="w-full pl-4 flex justify-center border-t items-center  h-10 bg-[rgba(0,0,0,0.9)] hover:underline">
               <a href="">Sign out of Netflix</a>
             </li>
           </ul>
@@ -183,12 +187,12 @@ function Navbar({ type, username }) {
         <div
           className={`z-20 max-sm:z-10 transition-all fixed ${
             !genreBg ? `translate-y-16` : ``
-          } w-screen py-5 max-sm:py-2 max-sm:px-4 px-16 flex gap-8 items-center ${
+          } w-screen py-5 max-sm:py-2 max-sm:px-4 px-16 flex items-center ${
             navBg ? `navBg` : ``
           } max-sm:relative max-sm:translate-y-12`}
         >
           {type == `tv` ? (
-            <h1 className="text-4xl font-bold text-white max-sm:text-xl max-sm:text-[#999]">
+            <h1 className="text-4xl font-bold mr-8 text-white max-sm:text-xl max-sm:text-[#999]">
               TV Shows
             </h1>
           ) : (

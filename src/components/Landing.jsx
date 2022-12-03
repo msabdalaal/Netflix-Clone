@@ -37,8 +37,8 @@ function Landing({ type }) {
       return logo.logo_path;
     }) ?? [];
   return (
-    <section className="h-screen w-full relative flex justify-center items-start text-white flex-col z-0 max-sm:hidden">
-      <div className="h-screen left-0 top-0 absolute w-full">
+    <section className="lg:h-screen max-md:h-[50vh] md:h-[50vh]  w-full relative flex justify-center items-start text-white flex-col z-0 max-sm:hidden">
+      <div className="lg:h-screen max-md:h-[50vh] md:h-[50vh] left-0 top-0 absolute w-full">
         {isLoading ? (
           <BeatLoader color="#fff" />
         ) : (
@@ -67,19 +67,19 @@ function Landing({ type }) {
         </div>
         <h1 className="text-2xl font-bold mb-4">{result.title}</h1>
         <p className="text-xl h-20 overflow-hidden mb-4">{result.overview}</p>
-        <div className="flex justify-start items-center gap-4">
+        <div className="flex justify-start items-center">
           <Link
             to={`/-${id}-${type}`}
-            className="transition-all flex justify-center items-center gap-2 px-8 py-3 font-bold bg-white hover:bg-[#7b7b7b] text-black rounded-lg"
+            className="transition-all flex justify-center items-center mr-4 px-8 py-3 font-bold bg-white hover:bg-[#7b7b7b] text-black rounded-lg"
           >
-            <FaPlay className="text-2xl" />
+            <FaPlay className="text-2xl mr-2" />
             Play
           </Link>
           <button
             onClick={() => setPrevOpen(true)}
             className="transition-all flex justify-center items-center gap-2 px-8 py-3 font-bold bg-[#7b7b7b50] hover:bg-[#7b7b7b2c] text-white rounded-lg"
           >
-            <FaInfoCircle className="text-3xl" />
+            <FaInfoCircle className="text-3xl mr-2" />
             More Info
           </button>
         </div>
