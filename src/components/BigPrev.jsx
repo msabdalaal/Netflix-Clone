@@ -20,14 +20,14 @@ export default function BigPrev({ id, closeBigPrev, type }) {
         >
           X
         </button>
-        <div className="h-[50vh] rounded-t-md flex justify-center items-center">
+        <div className="h-[50vh] w-full rounded-t-md flex justify-center items-center">
           {isLoading ? (
             <BeatLoader color="#fff" />
           ) : (
             <img
               src={`https://image.tmdb.org/t/p/original/${Data.backdrop_path}`}
               alt="back_drop"
-              className="rounded-t-md h-full object-cover"
+              className="rounded-t-md h-full w-full object-cover"
             />
           )}
         </div>
