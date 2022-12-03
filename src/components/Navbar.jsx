@@ -50,7 +50,7 @@ function Navbar({ type, username }) {
             <li
               className={`${
                 type == undefined ? `active` : ``
-              } mr-8 max-sm:mr-4`}
+              } mr-4 max-sm:mr-2`}
             >
               <Link to="/">Home</Link>
             </li>

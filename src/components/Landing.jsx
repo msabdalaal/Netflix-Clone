@@ -37,8 +37,8 @@ function Landing({ type }) {
       return logo.logo_path;
     }) ?? [];
   return (
-    <section className="lg:h-screen max-md:h-[50vh] md:h-[50vh]  w-full relative flex justify-center items-start text-white flex-col z-0 max-sm:hidden">
-      <div className="lg:h-screen max-md:h-[50vh] md:h-[50vh] left-0 top-0 absolute w-full">
+    <section className="lg:h-screen max-md:h-[80vh] md:h-[80vh]  w-full relative flex justify-center items-start text-white flex-col z-0 max-sm:hidden">
+      <div className="h-full left-0 top-0 absolute w-full">
         {isLoading ? (
           <BeatLoader color="#fff" />
         ) : (
@@ -77,9 +77,9 @@ function Landing({ type }) {
           </Link>
           <button
             onClick={() => setPrevOpen(true)}
-            className="transition-all flex justify-center items-center gap-2 px-8 py-3 font-bold bg-[#7b7b7b50] hover:bg-[#7b7b7b2c] text-white rounded-lg"
+            className="transition-all flex justify-center whitespace-nowrap items-center gap-2 px-8 py-3 font-bold bg-[#7b7b7b50] hover:bg-[#7b7b7b2c] text-white rounded-lg"
           >
-            <FaInfoCircle className="text-3xl mr-2" />
+            <FaInfoCircle className="text-3xl mr-2 " />
             More Info
           </button>
         </div>
