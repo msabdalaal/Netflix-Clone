@@ -79,7 +79,7 @@ function Landing({ type }) {
             onClick={() => setPrevOpen(true)}
             className="transition-all flex justify-center whitespace-nowrap items-center gap-2 px-8 py-3 font-bold bg-[#7b7b7b50] hover:bg-[#7b7b7b2c] text-white rounded-lg"
           >
-            <FaInfoCircle className="text-3xl mr-2 " />
+            <FaInfoCircle className="text-2xl mr-2 " />
             More Info
           </button>
         </div>
